@@ -1,10 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*   PRACTICA 3 AUTÓMATA FINITO DETERMINISTA (AFD)          
+                    ALUMNOS:
+            CUEVAS OLVERA IAN AXEL
+            ORTEGA ESTRADA ISMAEL
+*/
 package practica3tc;
-
 import java.util.Scanner;
 
 /**
