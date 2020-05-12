@@ -2,6 +2,7 @@
                     ALUMNOS:
             CUEVAS OLVERA IAN AXEL
             ORTEGA ESTRADA ISMAEL
+                 GRUPO: 2CM3
 */
 package practica3tc;
 import java.util.Scanner;
@@ -12,10 +13,10 @@ import java.util.Scanner;
  */
 public class Menu {
     char opc = ' ';
-    String menu[] = {"a) "
-                   , "b) "
-                   , "c) "
-                   , "d) "
+    String menu[] = {"a) AFD que Acepta un Número Real"
+                   , "b) AFD que reconoce cadenas con un número par de 0 sin 1 sucesivos"
+                   , "c) AFD que acepta cadenas de longitud 3 con contenga 2 o más simbolos consecutivos iguales"
+                   , "d) AFD Máquinas Expendedoras"
                    , "z) Salir"};
     Scanner scan = new Scanner(System.in);
     public Menu(){
