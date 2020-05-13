@@ -33,7 +33,8 @@ public class Menu {
                     incisoB b = new incisoB(chain);
                     break;
                 case 'c':
-                    
+                    chain = readChain();
+                    incisoC c = new incisoC(chain);
                     break;
                 case 'd':
                     break;    

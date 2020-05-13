@@ -9,14 +9,14 @@ package practica3tc;
  *
  * @author axel_
  */
-public final class incisoA {
+public final class incisoC {
     
     private String cadena;
     private int contador;
     private boolean aceptacion; 
     private int estados[][];
     
-    public incisoA(String cadena){
+    public incisoC(String cadena){
         this.cadena = cadena;
         this.contador = 0;
         this.aceptacion = false;
