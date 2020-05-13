@@ -23,8 +23,8 @@ public final class incisoC {
         
         estados = new int[][]{
     //Se declaran los estados de la siguiente manera
-    //a: si es de aceptación, qa:transicion con a, qb:transición con b, qc: transición con c
-         //qi, a, qa, qb, qc 
+    //a: si es de aceptación, ta:transicion con a, tb:transición con b, tc: transición con c
+         //qi, a, ta, tb, tc 
             {0, 0, 1, 2, 3},
             {1, 0, 4, 7, 9},
             {2, 0, 8, 5, 9},

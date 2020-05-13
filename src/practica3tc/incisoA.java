@@ -9,28 +9,33 @@ package practica3tc;
  *
  * @author axel_
  */
-public final class incisoB {
+public final class incisoA {
     
     private String cadena;
     private int contador;
     private boolean aceptacion; 
     private int estados[][];
     
-    public incisoB(String cadena){
+    public incisoA(String cadena){
         this.cadena = cadena;
         this.contador = 0;
         this.aceptacion = false;
         
         estados = new int[][]{
     //Se declaran los estados de la siguiente manera
-    //a: si es de aceptación, ta:transicion con 0, tb:transición con 1
-         //qi, a, ta, tb
-            {0, 1, 2, 1},
-            {1, 1, 2, 5},
-            {2, 0, 3, 4},
-            {3, 1, 2, 1},
-            {4, 0, 3, 5},
-            {5, 0, 5, 5}
+    //a: si es de aceptación, ta:transicion con dígito, 
+    //tb:transición con signo, tc: transición con e, td: transición con punto
+           //qi,a,ta,tb,tc,td
+            {0, 0, 2, 1, 8, 8},
+            {1, 0, 2, 8, 8, 8},
+            {2, 1, 2, 8, 5, 3},
+            {3, 0, 4, 8, 8, 8},
+            {4, 1, 4, 8, 5, 8},
+            {5, 0, 7, 6, 8, 8},
+            {6, 0, 7, 8, 8, 8},
+            {7, 1, 7, 8, 8, 8},
+            {8, 0, 8, 8, 8, 8},
+            
         };
         
         edoQ(0);   //Se ejecuta al primer estado del autómata
@@ -41,15 +46,14 @@ public final class incisoB {
         if(!termina()){ //Verifica que la cadena aún no haya sido recorrida por completo
             this.contador++;
             char actual = getActualChar();
-            switch (actual) {//Cambia de estado dependiendo de el caracter, el numero de estado lo toma de el array bidimensional
-                case '0':
-                    edoQ(estados[n][2]);
-                    break;
-                case '1':
-                    edoQ(estados[n][3]);
-                    break;
-                default:
-                    break;
+            if(esDigito()){
+                edoQ(estados[n][2]);
+            }else if(esSigno()){
+                edoQ(estados[n][3]);
+            }else if(esE()){
+                edoQ(estados[n][4]);
+            }else if(actual=='.'){
+                edoQ(estados[n][5]);
             }
         }
         else{
@@ -59,6 +63,18 @@ public final class incisoB {
     
     public boolean termina(){
         return this.cadena.length() == this.contador;
+    }
+    
+    public boolean esDigito(){
+        return '0'<=getActualChar() && getActualChar()<='9';
+    }
+    
+    public boolean esSigno(){
+        return getActualChar() == '+' || getActualChar() == '-';
+    }
+    
+    public boolean esE(){
+        return getActualChar() == 'E' || getActualChar() == 'e';
     }
     
     public char getActualChar(){

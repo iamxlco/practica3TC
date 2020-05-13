@@ -23,18 +23,15 @@ public class Menu {
         do{
             print(menu);
             opc = scan.nextLine().charAt(0);
-            String chain = "";
             switch(opc){
                 case 'a':
-                    
+                    incisoA a = new incisoA(readChain());
                     break;
                 case 'b':
-                    chain = readChain();
-                    incisoB b = new incisoB(chain);
+                    incisoB b = new incisoB(readChain());
                     break;
                 case 'c':
-                    chain = readChain();
-                    incisoC c = new incisoC(chain);
+                    incisoC c = new incisoC(readChain());
                     break;
                 case 'd':
                     
