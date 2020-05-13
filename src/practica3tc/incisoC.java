@@ -70,7 +70,7 @@ public final class incisoC {
     }
     
     public char getActualChar(){
-        return this.cadena.charAt(this.contador);
+        return this.cadena.charAt(this.contador-1);
     }
     
     public void printAceptacion(){
