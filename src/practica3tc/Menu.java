@@ -17,20 +17,23 @@ public class Menu {
                    , "b) AFD que reconoce cadenas con un número par de 0 sin 1 sucesivos"
                    , "c) AFD que acepta cadenas de longitud 3 con contenga 2 o más simbolos consecutivos iguales"
                    , "d) AFD Máquinas Expendedoras"
-                   , "z) Salir"};
+                   , "z) Salir\n"};
     Scanner scan = new Scanner(System.in);
     public Menu(){
         do{
             print(menu);
             opc = scan.nextLine().charAt(0);
+            String chain = "";
             switch(opc){
                 case 'a':
+                    
                     break;
                 case 'b':
-                    itemB();
+                    chain = readChain();
+                    incisoB b = new incisoB(chain);
                     break;
                 case 'c':
-                    itemC();
+                    
                     break;
                 case 'd':
                     break;    
@@ -40,38 +43,6 @@ public class Menu {
                     System.out.println("Opción inválida");
             }
         }while(opc!='z');
-    }
-    
-    public void itemB(){
-        String chain = readChain();
-        
-        int zeros = 0, ones = 0;
-        boolean flag = true;
-        for(int i=0;i<chain.length();i++){
-            if(chain.charAt(i)=='0'){
-                zeros++;
-                ones = 0;
-            }
-            else{
-                ones++;
-                if(ones>1)
-                    flag=false;
-            }
-        }
-        if(zeros%2==1)
-            flag=false;
-        
-        System.out.println(flag ? "\nCadena aceptada" : "\nCadena no aceptada");
-    }
-    
-    public void itemC(){
-        String chain = readChain();
-        
-        int a=0, b=0, c=0;
-        
-        for(int i=0;i<chain.length();i++){
-            
-        }
     }
     
     public String readChain(){
