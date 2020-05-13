@@ -9,14 +9,14 @@ package practica3tc;
  *
  * @author axel_
  */
-public final class incisoB {
+public final class incisoA {
     
     private String cadena;
     private int contador;
     private boolean aceptacion; 
     private int estados[][];
     
-    public incisoB(String cadena){
+    public incisoA(String cadena){
         this.cadena = cadena;
         this.contador = 0;
         this.aceptacion = false;
@@ -25,28 +25,36 @@ public final class incisoB {
     //Se declaran los estados de la siguiente manera
     //a: si es de aceptación, qa:transicion con a, qb:transición con b, qc: transición con c
          //qi, a, qa, qb, qc 
-            {0, 1, 2, 1},
-            {1, 1, 2, 5},
-            {2, 0, 3, 4},
-            {3, 1, 2, 1},
-            {4, 0, 3, 5},
-            {5, 0, 5, 5}
+            {0, 0, 1, 2, 3},
+            {1, 0, 4, 7, 9},
+            {2, 0, 8, 5, 9},
+            {3, 0, 8, 7, 6},
+            {4, 0, 10, 10, 10},
+            {5, 0, 10, 10, 10},
+            {6, 0, 10, 10, 10},
+            {7, 0, 11, 10, 11},
+            {8, 0, 10, 11, 11},
+            {9, 0, 11, 11, 10},
+            {10, 1, 11, 11, 11},
+            {11, 0, 11, 11, 11},
         };
         
         edoQ(0);   //Se ejecuta al primer estado del autómata
     }
     
     public void edoQ(int n){
-        this.aceptacion = (estados[n][1]==1); //Aquí obtiene la aceptación del estado en el que se encuentra, lo iguala con int para obtener booleano
+        this.aceptacion = (estados[n][1]==1);
         if(!termina()){ //Verifica que la cadena aún no haya sido recorrida por completo
             this.contador++;
-            char actual = getActualChar();
-            switch (actual) {//Cambia de estado dependiendo de el caracter, el numero de estado lo toma de el array bidimensional
-                case '0':
+            switch (getActualChar()) {//Cambia de estado dependiendo de el caracter, el numero de estado lo toma de el array bidimensional
+                case 'a':
                     edoQ(estados[n][2]);
                     break;
-                case '1':
+                case 'b':
                     edoQ(estados[n][3]);
+                    break;
+                case 'c':
+                    edoQ(estados[n][4]);
                     break;
                 default:
                     break;
@@ -62,7 +70,7 @@ public final class incisoB {
     }
     
     public char getActualChar(){
-        return this.cadena.charAt(this.contador-1);
+        return this.cadena.charAt(this.contador);
     }
     
     public void printAceptacion(){

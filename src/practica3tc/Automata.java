@@ -7,6 +7,7 @@ public class Automata {
     private int contador;
     private boolean aceptacion;
     
+    
     public Automata(String cadena){
         this.cadena = cadena;
         this.contador = 0;
