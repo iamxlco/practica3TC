@@ -67,6 +67,7 @@ public final class incisoC {
                     edoQ(estados[n][4]);
                     break;
                 default:
+                    edoQ(estados[11][0]);
                     break;
             }
         }
@@ -90,6 +91,6 @@ public final class incisoC {
     }
     
     public void printAceptacion(){
-        System.out.println(this.aceptacion ? "Cadena aceptada" : "Cadena rechazada");
+       System.out.println(this.aceptacion ? "\n****Cadena ACEPTADA****\n" : "\n****Cadena RECHAZADA****\n");
     }
 }

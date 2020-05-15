@@ -83,8 +83,4 @@ public final class incisoD {
         System.out.print("Opción: ");
         this.opc = Integer.parseInt(scan.nextLine().charAt(0)+"");
     }
-    
-    public void printAceptacion(){
-        System.out.println(this.aceptacion ? "Cadena aceptada" : "Cadena rechazada");
-    }
 }

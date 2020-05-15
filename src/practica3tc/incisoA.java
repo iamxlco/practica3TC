@@ -33,8 +33,8 @@ public final class incisoA {
         //a: si es de aceptación, ta:transicion con dígito, 
         //tb:transición con signo, tc: transición con e, td: transición con punto
                //qi,a,ta,tb,tc,td
-                {0, 0, 2, 1, 8, 8},
-                {1, 0, 2, 8, 8, 8},
+                {0, 0, 2, 1, 8, 3},
+                {1, 0, 2, 8, 8, 3},
                 {2, 1, 2, 8, 5, 3},
                 {3, 0, 4, 8, 8, 8},
                 {4, 1, 4, 8, 5, 8},
@@ -63,6 +63,8 @@ public final class incisoA {
                 edoQ(estados[n][4]);
             }else if(actual=='.'){
                 edoQ(estados[n][5]);
+            }else{
+                edoQ(estados[8][0]);
             }
         }
         else{
@@ -97,6 +99,6 @@ public final class incisoA {
     }
     
     public void printAceptacion(){
-        System.out.println(this.aceptacion ? "Cadena aceptada" : "Cadena rechazada");
+        System.out.println(this.aceptacion ? "\n****Cadena ACEPTADA****\n" : "\n****Cadena RECHAZADA****\n");
     }
 }
