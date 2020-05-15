@@ -25,16 +25,16 @@ public class Menu {
             opc = scan.nextLine().charAt(0);
             switch(opc){
                 case 'a':
-                    incisoA a = new incisoA(readChain());
+                    incisoA a = new incisoA();
                     break;
                 case 'b':
-                    incisoB b = new incisoB(readChain());
+                    incisoB b = new incisoB();
                     break;
                 case 'c':
-                    incisoC c = new incisoC(readChain());
+                    incisoC c = new incisoC();
                     break;
                 case 'd':
-                    
+                    incisoD d = new incisoD();
                     break;    
                 case 'z':
                     

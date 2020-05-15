@@ -5,35 +5,48 @@
  */
 package practica3tc;
 
+import java.util.Scanner;
+
 /**
  *
  * @author axel_
  */
 public final class incisoB {
     
+    Scanner scan = new Scanner(System.in);
+    
     private String cadena;
     private int contador;
     private boolean aceptacion; 
     private int estados[][];
     
-    public incisoB(String cadena){
-        this.cadena = cadena;
-        this.contador = 0;
-        this.aceptacion = false;
+    public incisoB(){
+        String cadena = readChain();
         
-        estados = new int[][]{
-    //Se declaran los estados de la siguiente manera
-    //a: si es de aceptación, ta:transicion con 0, tb:transición con 1
-         //qi, a, ta, tb
-            {0, 1, 2, 1},
-            {1, 1, 2, 5},
-            {2, 0, 3, 4},
-            {3, 1, 2, 1},
-            {4, 0, 3, 5},
-            {5, 0, 5, 5}
-        };
+        while(!cadena.equals("z")){
+            this.cadena = cadena;
+            this.contador = 0;
+            this.aceptacion = false;
+
+            estados = new int[][]{
+        //Se declaran los estados de la siguiente manera
+        //a: si es de aceptación, ta:transicion con 0, tb:transición con 1
+             //qi, a, ta, tb
+                {0, 1, 2, 1},
+                {1, 1, 2, 5},
+                {2, 0, 3, 4},
+                {3, 1, 2, 1},
+                {4, 0, 3, 5},
+                {5, 0, 5, 5}
+            };
+
+            edoQ(0);   //Se ejecuta al primer estado del autómata
+            
+            cadena = readChain();
+        }
         
-        edoQ(0);   //Se ejecuta al primer estado del autómata
+        
+        
     }
     
     public void edoQ(int n){
@@ -55,6 +68,12 @@ public final class incisoB {
         else{
             printAceptacion(); //Cuando termina dependiendo del valor de la aceptación imprime si es a ceptada o no
         }
+    }
+    
+    public String readChain(){
+        System.out.println("Para salir escriba z");
+        System.out.print("Inserte la cadena: ");
+        return scan.nextLine();
     }
     
     public boolean termina(){

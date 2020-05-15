@@ -5,40 +5,49 @@
  */
 package practica3tc;
 
+import java.util.Scanner;
+
 /**
  *
  * @author axel_
  */
 public final class incisoA {
     
+    Scanner scan = new Scanner(System.in);
+    
     private String cadena;
     private int contador;
     private boolean aceptacion; 
     private int estados[][];
     
-    public incisoA(String cadena){
-        this.cadena = cadena;
-        this.contador = 0;
-        this.aceptacion = false;
+    public incisoA(){
+        String cadena = readChain();
         
-        estados = new int[][]{
-    //Se declaran los estados de la siguiente manera
-    //a: si es de aceptación, ta:transicion con dígito, 
-    //tb:transición con signo, tc: transición con e, td: transición con punto
-           //qi,a,ta,tb,tc,td
-            {0, 0, 2, 1, 8, 8},
-            {1, 0, 2, 8, 8, 8},
-            {2, 1, 2, 8, 5, 3},
-            {3, 0, 4, 8, 8, 8},
-            {4, 1, 4, 8, 5, 8},
-            {5, 0, 7, 6, 8, 8},
-            {6, 0, 7, 8, 8, 8},
-            {7, 1, 7, 8, 8, 8},
-            {8, 0, 8, 8, 8, 8},
+        while(!cadena.equals("z")){
+            this.cadena = cadena;
+            this.contador = 0;
+            this.aceptacion = false;
+
+            estados = new int[][]{
+        //Se declaran los estados de la siguiente manera
+        //a: si es de aceptación, ta:transicion con dígito, 
+        //tb:transición con signo, tc: transición con e, td: transición con punto
+               //qi,a,ta,tb,tc,td
+                {0, 0, 2, 1, 8, 8},
+                {1, 0, 2, 8, 8, 8},
+                {2, 1, 2, 8, 5, 3},
+                {3, 0, 4, 8, 8, 8},
+                {4, 1, 4, 8, 5, 8},
+                {5, 0, 7, 6, 8, 8},
+                {6, 0, 7, 8, 8, 8},
+                {7, 1, 7, 8, 8, 8},
+                {8, 0, 8, 8, 8, 8}
+            };
+
+            edoQ(0);   //Se ejecuta al primer estado del autómata
             
-        };
-        
-        edoQ(0);   //Se ejecuta al primer estado del autómata
+            cadena = readChain();
+        }
     }
     
     public void edoQ(int n){
@@ -59,6 +68,12 @@ public final class incisoA {
         else{
             printAceptacion(); //Cuando termina dependiendo del valor de la aceptación imprime si es a ceptada o no
         }
+    }
+    
+    public String readChain(){
+        System.out.println("Para salir escriba z");
+        System.out.print("Inserte la cadena: ");
+        return scan.nextLine();
     }
     
     public boolean termina(){
